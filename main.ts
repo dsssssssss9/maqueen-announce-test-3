@@ -16,7 +16,14 @@ input.onButtonPressed(Button.A, function () {
         Track_Num = 1
     }
     basic.showString("" + Track_Num)
+    if (Track_Num % 2 == 0) {
+        maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 48)
+    } else {
+        maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CCW, 48)
+    }
     Play_Track()
+    basic.pause(2000)
+    maqueen.motorStop(maqueen.Motors.All)
 })
 function Play_Track () {
     let m = control.createBuffer(7)
@@ -37,7 +44,8 @@ BaudRate.BaudRate9600
 )
 let Volume = 16
 Track_Num = 0
-basic.showIcon(IconNames.Rollerskate)
+basic.showIcon(IconNames.Happy)
+maqueen.motorStop(maqueen.Motors.All)
 basic.forever(function () {
 	
 })
